@@ -1,0 +1,17 @@
+#!/bin/sh
+
+export version=$1
+export branch=$2
+export dir=tiki_$version
+export db=tiki_$version
+
+export MYSQLCONNSTR_Tiki="Database=$db;Data Source=localhost;User Id=$db;Password=$db"
+if [ ! -d $dir ]; then
+	svn checkout https://svn.code.sf.net/p/tikiwiki/code/$branch $dir
+	cd $dir
+	bash doc/devtools/svnup.sh
+	php console.php database:install
+else
+	cd $dir
+	bash doc/devtools/svnup.sh
+fi
