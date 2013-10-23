@@ -7,10 +7,14 @@ export db=tiki_$version
 
 export MYSQLCONNSTR_Tiki="Database=$db;Data Source=localhost;User Id=$db;Password=$db"
 if [ ! -d $dir ]; then
-	svn checkout https://svn.code.sf.net/p/tikiwiki/code/$branch $dir
-	cd $dir
-	bash doc/devtools/svnup.sh
-	php console.php database:install
+	if [ -n "$branch" ]; then
+		svn checkout https://svn.code.sf.net/p/tikiwiki/code/$branch $dir
+		cd $dir
+		bash doc/devtools/svnup.sh
+		php console.php database:install
+	else
+		echo "Tiki $version not initialized. Provide the branch to checkout."
+	fi
 else
 	cd $dir
 	bash doc/devtools/svnup.sh

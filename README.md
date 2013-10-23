@@ -5,8 +5,17 @@ __Important :__ This setup is unsuitable for production use. It's only meant to 
 ```
 vagrant up
 vagrant ssh
-source activate 12 branches/12.x   # For Tiki 12
-source activate 13 trunk           # For 13/trunk/next
+
+# To initialize Tiki versions
+activate 12 branches/12.x   # For Tiki 12
+activate 13 trunk           # For 13/trunk/next
+
+# To switch between them in the shell / Update local version
+activate 12
+activate 13
+
+# Using the console
+tiki database:update          # tiki is set as an alias for convenience
 ```
 
 Each version must be initialized independently. They are available on port 80xx where xx is the version number.

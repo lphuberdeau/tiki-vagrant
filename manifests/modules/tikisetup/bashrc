@@ -1,0 +1,5 @@
+alias tiki="php console.php"
+alias activate="cd ~; source activate"
+
+export SVN_EDITOR=vim
+export EDITOR=vim

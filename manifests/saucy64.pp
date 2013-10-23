@@ -42,6 +42,13 @@ file { "/home/vagrant/.vimrc":
 	group => "vagrant",
 }
 
+file { "/home/vagrant/.bash_profile":
+	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/bashrc",
+	ensure => "present",
+	owner => "vagrant",
+	group => "vagrant",
+}
+
 file { "/home/vagrant/activate":
 	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/activate",
 	ensure => "present",
