@@ -30,13 +30,13 @@ Vagrant::Config.run do |config|
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
-  config.vm.forward_port 8009, 8009
-  config.vm.forward_port 8010, 8010
-  config.vm.forward_port 8011, 8011
   config.vm.forward_port 8012, 8012
   config.vm.forward_port 8013, 8013
   config.vm.forward_port 8014, 8014
   config.vm.forward_port 8015, 8015
+
+  # phpmyadmin
+  config.vm.forward_port 8100, 8100
 
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the

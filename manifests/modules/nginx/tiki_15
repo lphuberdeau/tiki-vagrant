@@ -1,9 +1,9 @@
 
 server {
-	listen 8012 default_server;
-	listen [::]:8012 default_server ipv6only=on;
+	listen 8015 default_server;
+	listen [::]:8015 default_server ipv6only=on;
 
-	root /home/vagrant/tiki_12;
+	root /home/vagrant/tiki_15;
 	index index.php index.html;
 
 	# Make site accessible from http://localhost/
@@ -27,7 +27,7 @@ server {
 		fastcgi_pass unix:/var/run/php5-fpm.sock;
 		fastcgi_index route.php;
 		include fastcgi_params;
-		fastcgi_param MYSQLCONNSTR_Tiki "Database=tiki_12;Data Source=localhost;User Id=tiki_12;Password=tiki_12";
+		fastcgi_param MYSQLCONNSTR_Tiki "Database=tiki_15;Data Source=localhost;User Id=tiki_15;Password=tiki_15";
 	}
 
 	# deny access to .htaccess files, if Apache's document root
