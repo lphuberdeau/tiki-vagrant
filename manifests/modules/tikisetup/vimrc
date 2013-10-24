@@ -46,9 +46,7 @@ syntax on
 set hls
 set ai sta
 
-if "/var/www/htc_" == strpart( getcwd(), 0, 13 )
-	set et
-endif
+command! -nargs=* Tiki !php console.php <q-args>
 
 " Shortcut to rapidly toggle `set list`
 nmap  :set list!<CR>

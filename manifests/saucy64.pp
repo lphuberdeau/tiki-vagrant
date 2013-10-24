@@ -29,7 +29,8 @@ exec { "apt-update":
 	command => "/usr/bin/apt-get update",
 }
 
-$base_packages = ["php5-fpm", "php5-cli", "vim", "vim-common", "htop", "php5-xdebug", "subversion", "php5-json", "php5-mysql", "php5-curl", "phpmyadmin", "nginx"]
+$base_packages = ["php5-fpm", "php5-cli", "php5-xdebug", "php5-json", "php5-mysql", "php5-curl", "php5-mcrypt", "php5-gd", "php5-gmp",
+				"vim", "vim-common", "htop", "subversion", "phpmyadmin", "nginx"]
 package { $base_packages:
 	ensure => "present",
 	require => Exec['apt-update'],
