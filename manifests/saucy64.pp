@@ -63,6 +63,13 @@ file { "/etc/php5/fpm/conf.d/99-php_settings.ini":
 	notify => Service['php5-fpm'],
 }
 
+file { "/etc/php5/fpm/pool.d/www.conf":
+	source => "/tmp/vagrant-puppet/manifests/modules/nginx/www.conf",
+	ensure => "present",
+	require => Package['php5-fpm'],
+	notify => Service['php5-fpm'],
+}
+
 file { "/etc/php5/cli/conf.d/99-php_settings.ini":
 	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/99-php_settings.ini",
 	ensure => "present",
