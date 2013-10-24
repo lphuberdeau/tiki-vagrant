@@ -25,4 +25,4 @@ The database connection is assigned through an environment variable, no need for
 - Tiki 12 is on http://localhost:8012
 - Tiki 13 is on http://localhost:8013
 - ...
-- phpMyAdmin is on http://localhost:8100 (user root, no password)
+- phpMyAdmin is on http://localhost:8100 (no authentication)
