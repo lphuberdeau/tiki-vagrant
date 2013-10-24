@@ -46,7 +46,8 @@ syntax on
 set hls
 set ai sta
 
-command! -nargs=* Tiki !php console.php <q-args>
+command! -nargs=* Tiki !php console.php <args>
+map <F12> :Tiki 
 
 " Shortcut to rapidly toggle `set list`
 nmap  :set list!<CR>
