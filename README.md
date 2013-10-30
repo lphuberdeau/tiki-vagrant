@@ -3,7 +3,7 @@
 __Important :__ This setup is unsuitable for production use. It's only meant to simplify development.
 
 ```
-vagrant up
+vagrant up tiki
 vagrant ssh
 
 # To initialize Tiki versions
@@ -26,3 +26,21 @@ The database connection is assigned through an environment variable, no need for
 - Tiki 13 is on http://localhost:8013
 - ...
 - phpMyAdmin is on http://localhost:8100 (no authentication)
+
+## With ElasticSearch
+
+```
+vagrant up elastic
+```
+
+Set your ElasticSearch configuration to __http://192.168.33.1:9200__
+
+## Stopping it all
+
+```
+vagrant suspend      # Put servers to sleep
+                     # or
+vagrant halt         # Shutdown servers
+                     # or
+vagrant destroy      # Stop and free up space
+```
