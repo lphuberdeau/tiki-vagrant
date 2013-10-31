@@ -10,6 +10,7 @@ export TIKI_INI_FILE="/etc/tiki.ini"
 export TIKI_INI_IDENTIFIER=$db
 
 export PS1="\e[1;94mTiki ${version} \e[1;97m\$\e[0m "
+echo -ne "\033]0;Tiki ${version}\007"
 
 if [ ! -d $dir ]; then
 	if [ -n "$branch" ]; then
