@@ -6,6 +6,7 @@ export dir=tiki_$version
 export db=tiki_$version
 
 export MYSQLCONNSTR_Tiki="Database=$db;Data Source=localhost;User Id=$db;Password=$db"
+export PS1="\e[1;94mTiki ${version} \e[1;97m\$\e[0m "
 if [ ! -d $dir ]; then
 	if [ -n "$branch" ]; then
 		svn checkout https://svn.code.sf.net/p/tikiwiki/code/$branch $dir
