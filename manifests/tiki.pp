@@ -64,6 +64,14 @@ file { "/etc/php5/fpm/conf.d/99-php_settings.ini":
 	notify => Service['php5-fpm'],
 }
 
+file { "/etc/tiki.ini":
+	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/tiki.ini",
+	ensure => "present",
+	require => Package['php5-fpm'],
+	notify => Service['php5-fpm'],
+	mode => 0644,
+}
+
 file { "/etc/php5/fpm/pool.d/www.conf":
 	source => "/tmp/vagrant-puppet/manifests/modules/nginx/www.conf",
 	ensure => "present",

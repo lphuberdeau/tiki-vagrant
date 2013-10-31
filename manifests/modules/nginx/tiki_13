@@ -28,6 +28,8 @@ server {
 		fastcgi_index route.php;
 		include fastcgi_params;
 		fastcgi_param MYSQLCONNSTR_Tiki "Database=tiki_13;Data Source=localhost;User Id=tiki_13;Password=tiki_13";
+		fastcgi_param TIKI_INI_FILE "/etc/tiki.ini";
+		fastcgi_param TIKI_INI_IDENTIFIER "tiki_13";
 	}
 
 	# deny access to .htaccess files, if Apache's document root
