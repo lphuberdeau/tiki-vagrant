@@ -10,6 +10,11 @@ Vagrant.configure("2") do |config|
 		# Boot with a GUI so you can see the screen. (Default is headless)
 		# config.vm.boot_mode = :gui
 
+		tiki.vm.provider "virtualbox" do |v|
+			v.customize ["modifyvm", :id, "--memory", "768"]
+			v.customize ["modifyvm", :id, "--pagefusion", "on"]
+		end
+
 		# via the IP. Host-only networks can talk to the host machine as well as
 		# any other machines on the same network, but cannot be accessed (through this
 		# network interface) by any external networks.
@@ -35,6 +40,10 @@ Vagrant.configure("2") do |config|
 		# Every Vagrant virtual environment requires a box to build off of.
 		elastic.vm.box = "saucy64"
 		elastic.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box"
+
+		elastic.vm.provider "virtualbox" do |v|
+			v.customize ["modifyvm", :id, "--pagefusion", "on"]
+		end
 
 		# Boot with a GUI so you can see the screen. (Default is headless)
 		# config.vm.boot_mode = :gui
