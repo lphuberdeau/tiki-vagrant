@@ -24,5 +24,11 @@ if [ ! -d $dir ]; then
 	fi
 else
 	cd $dir
-	bash doc/devtools/svnup.sh
+	if [ -d .svn ]; then
+		bash doc/devtools/svnup.sh
+	else
+		git pull origin master
+		bash setup.sh -n fix 
+		php console.php database:update
+	fi
 fi
