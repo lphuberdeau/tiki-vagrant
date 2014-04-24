@@ -8,7 +8,7 @@ include mysql
 
 define nginx_site ($script = $title, $source) {
 	file { "/etc/nginx/sites-enabled/${script}":
-		source => "/tmp/vagrant-puppet/manifests/modules/${source}",
+		source => "/tmp/vagrant-puppet-1/manifests/modules/${source}",
 		ensure => "present",
 		require => [
 			Package['nginx'],
@@ -37,35 +37,35 @@ package { $base_packages:
 }
 
 file { "/home/vagrant/.vimrc":
-	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/vimrc",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/tikisetup/vimrc",
 	ensure => "present",
 	owner => "vagrant",
 	group => "vagrant",
 }
 
 file { "/home/vagrant/.bash_profile":
-	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/bashrc",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/tikisetup/bashrc",
 	ensure => "present",
 	owner => "vagrant",
 	group => "vagrant",
 }
 
 file { "/home/vagrant/activate":
-	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/activate",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/tikisetup/activate",
 	ensure => "present",
 	owner => "vagrant",
 	group => "vagrant",
 }
 
 file { "/etc/php5/fpm/conf.d/99-php_settings.ini":
-	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/99-php_settings.ini",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/tikisetup/99-php_settings.ini",
 	ensure => "present",
 	require => Package['php5-fpm'],
 	notify => Service['php5-fpm'],
 }
 
 file { "/etc/tiki.ini":
-	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/tiki.ini",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/tikisetup/tiki.ini",
 	ensure => "present",
 	require => Package['php5-fpm'],
 	notify => Service['php5-fpm'],
@@ -73,26 +73,26 @@ file { "/etc/tiki.ini":
 }
 
 file { "/etc/php5/fpm/pool.d/www.conf":
-	source => "/tmp/vagrant-puppet/manifests/modules/nginx/www.conf",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/nginx/www.conf",
 	ensure => "present",
 	require => Package['php5-fpm'],
 	notify => Service['php5-fpm'],
 }
 
 file { "/etc/php5/cli/conf.d/99-php_settings.ini":
-	source => "/tmp/vagrant-puppet/manifests/modules/tikisetup/99-php_settings.ini",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/tikisetup/99-php_settings.ini",
 	ensure => "present",
 	require => Package['php5-cli'],
 }
 
 file { "/etc/phpmyadmin/conf.d/99-local.php":
-	source => "/tmp/vagrant-puppet/manifests/modules/phpmyadmin/99-local.php",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/phpmyadmin/99-local.php",
 	ensure => "present",
 	require => Package['phpmyadmin'],
 }
 
 file { "/etc/nginx/nginx.conf":
-	source => "/tmp/vagrant-puppet/manifests/modules/nginx/nginx.conf",
+	source => "/tmp/vagrant-puppet-1/manifests/modules/nginx/nginx.conf",
 	ensure => "present",
 	notify => Service['nginx'],
 	require => Package['nginx'],
