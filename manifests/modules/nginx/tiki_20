@@ -1,0 +1,42 @@
+
+server {
+	listen 8020 default_server;
+	listen [::]:8020 default_server ipv6only=on;
+
+	root /home/vagrant/tiki_20;
+	index index.php index.html;
+
+	# Make site accessible from http://localhost/
+	server_name localhost;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ /index.html;
+
+		if (!-e $request_filename) { 
+			rewrite ^(.+)$ /route.php last; 
+		} 
+	}
+
+	location ~ \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		# NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+	
+		# With php5-fpm:
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index route.php;
+		include fastcgi_params;
+		fastcgi_param MYSQLCONNSTR_Tiki "Database=tiki_20;Data Source=localhost;User Id=tiki_20;Password=tiki_20";
+		fastcgi_param TIKI_INI_FILE "/etc/tiki.ini";
+		fastcgi_param TIKI_INI_IDENTIFIER "tiki_20";
+	}
+
+	# deny access to .htaccess files, if Apache's document root
+	# concurs with nginx's one
+	#
+	location ~ /\.ht {
+		deny all;
+	}
+}
+

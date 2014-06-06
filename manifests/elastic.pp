@@ -12,7 +12,7 @@ package { $base_packages:
 	require => Exec['apt-update'],
 }
 
-install_elastic { "0.90.10": }
+install_elastic { "1.1.1": }
 
 define install_elastic($version = $title) {
 	exec { "get-elasticsearch":
@@ -29,5 +29,9 @@ define install_elastic($version = $title) {
 			Exec['get-elasticsearch'],
 			Package['openjdk-7-jre-headless'],
 		]
+	}
+	service { "elasticsearch":
+		ensure => running,
+		require => Package["elasticsearch"]
 	}
 }

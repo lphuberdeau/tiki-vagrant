@@ -118,6 +118,13 @@ tiki { "13": }
 tiki { "14": }
 tiki { "15": }
 
+tiki { "20": }
+tiki { "21": }
+tiki { "22": }
+tiki { "23": }
+tiki { "24": }
+tiki { "25": }
+
 file { "/home/vagrant/cachegrind":
 	ensure => "directory",
 	owner => "vagrant",

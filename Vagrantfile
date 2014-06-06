@@ -28,6 +28,13 @@ Vagrant.configure("2") do |config|
 		tiki.vm.network :forwarded_port, host: 8014, guest: 8014
 		tiki.vm.network :forwarded_port, host: 8015, guest: 8015
 
+		tiki.vm.network :forwarded_port, host: 8020, guest: 8020
+		tiki.vm.network :forwarded_port, host: 8021, guest: 8021
+		tiki.vm.network :forwarded_port, host: 8022, guest: 8022
+		tiki.vm.network :forwarded_port, host: 8023, guest: 8023
+		tiki.vm.network :forwarded_port, host: 8024, guest: 8024
+		tiki.vm.network :forwarded_port, host: 8025, guest: 8025
+
 		# phpmyadmin
 		tiki.vm.network :forwarded_port, host: 8100, guest: 8100
 
