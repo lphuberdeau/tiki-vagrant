@@ -12,7 +12,7 @@ package { $base_packages:
 	require => Exec['apt-update'],
 }
 
-install_elastic { "1.1.1": }
+install_elastic { "1.2.1": }
 
 define install_elastic($version = $title) {
 	exec { "get-elasticsearch":
