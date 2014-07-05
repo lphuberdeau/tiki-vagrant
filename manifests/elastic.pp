@@ -34,4 +34,8 @@ define install_elastic($version = $title) {
 		ensure => running,
 		require => Package["elasticsearch"]
 	}
+	file { "/etc/default/elasticsearch":
+		ensure => present,
+		content => "START=yes",
+	}
 }
