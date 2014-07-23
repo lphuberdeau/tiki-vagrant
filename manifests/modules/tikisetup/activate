@@ -10,7 +10,7 @@ export MYSQLCONNSTR_Tiki="Database=$db;Data Source=localhost;User Id=$db;Passwor
 export TIKI_INI_FILE="/etc/tiki.ini"
 export TIKI_INI_IDENTIFIER=$db
 
-export PS1="\[\033]0;Tiki ${version}\007\]\[$(tput bold)\]\[$(tput setaf 4)\]${label} \[$(tput setaf 7)\]$ \[$(tput sgr0)\]"
+export PS1="\[\033]0;Tiki ${version}\007\]\[$(tput bold)\]\[$(tput setaf 4)\]${label}\[$(tput setaf 7)\] \W $ \[$(tput sgr0)\]"
 echo -ne "\033]0;Activating ${label}...\007"
 
 if [ ! -d $dir ]; then
