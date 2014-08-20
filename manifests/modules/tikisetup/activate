@@ -27,7 +27,7 @@ else
 	if [ -d .svn ]; then
 		bash doc/devtools/svnup.sh
 	else
-		git pull origin master
+		git pull
 		bash setup.sh -n fix 
 		php console.php database:update
 	fi
